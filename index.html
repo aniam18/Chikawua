@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikawua 💗</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>💗 CHIKAWUA 💗</h1>
+
+        <p class="subtitulo">¡Disfruta este pequeño detalle! ✨</p>
+
+        <!-- GIF DE CHIIKAWA -->
+        <img
+            src="imagenes/CHIKAWUA.gif"
+            alt="Chikawua bailando"
+            class="gif"
+        >
+
+        <h2>🎵 Disfruta la música 🎵</h2>
+
+        <!-- BOTÓN DE MÚSICA -->
+        <button id="botonMusica" onclick="controlarMusica()">
+            ▶ Reproducir música
+        </button>
+
+        <!-- ARCHIVO DE MÚSICA -->
+        <audio id="musica" loop>
+            <source src="musica.mp3" type="audio/mpeg">
+        </audio>
+
+        <p class="mensaje">Hecho con mucho cariño 💕</p>
+
+    </div>
+
+    <script>
+        const musica = document.getElementById("musica");
+        const boton = document.getElementById("botonMusica");
+
+        async function controlarMusica() {
+            if (musica.paused) {
+                try {
+                    await musica.play();
+                    boton.textContent = "⏸ Pausar música";
+                } catch (error) {
+                    alert("No se pudo reproducir la música. Revisa el archivo MP3.");
+                }
+            } else {
+                musica.pause();
+                boton.textContent = "▶ Reproducir música";
+            }
+        }
+    </script>
+
+</body>
+</html>
